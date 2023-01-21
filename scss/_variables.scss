@@ -321,15 +321,18 @@ $theme-colors: (
 ) !default;
 // scss-docs-end theme-colors-map
 
-$primary-text:            $blue-700 !default;
-$secondary-text:          $gray-700 !default;
-$success-text:            $green-700 !default;
-$info-text:               $cyan-800 !default;
-$warning-text:            $yellow-800 !default;
-$danger-text:             $red-700 !default;
-$light-text:              $gray-700 !default;
-$dark-text:               $gray-700 !default;
+// scss-docs-start theme-text-variables
+$primary-text-emphasis:   $blue-700 !default;
+$secondary-text-emphasis: $gray-700 !default;
+$success-text-emphasis:   $green-700 !default;
+$info-text-emphasis:      $cyan-800 !default;
+$warning-text-emphasis:   $yellow-800 !default;
+$danger-text-emphasis:    $red-700 !default;
+$light-text-emphasis:     $gray-700 !default;
+$dark-text-emphasis:      $gray-700 !default;
+// scss-docs-end theme-text-variables
 
+// scss-docs-start theme-bg-subtle-variables
 $primary-bg-subtle:       $blue-100 !default;
 $secondary-bg-subtle:     $gray-100 !default;
 $success-bg-subtle:       $green-100 !default;
@@ -338,7 +341,9 @@ $warning-bg-subtle:       $yellow-100 !default;
 $danger-bg-subtle:        $red-100 !default;
 $light-bg-subtle:         mix($gray-100, $white) !default;
 $dark-bg-subtle:          $gray-400 !default;
+// scss-docs-end theme-bg-subtle-variables
 
+// scss-docs-start theme-border-subtle-variables
 $primary-border-subtle:   $blue-200 !default;
 $secondary-border-subtle: $gray-200 !default;
 $success-border-subtle:   $green-200 !default;
@@ -347,6 +352,7 @@ $warning-border-subtle:   $yellow-200 !default;
 $danger-border-subtle:    $red-200 !default;
 $light-border-subtle:     $gray-200 !default;
 $dark-border-subtle:      $gray-500 !default;
+// scss-docs-end theme-border-subtle-variables
 
 // Characters which are escaped by the escape-svg function
 $escaped-characters: (
@@ -432,15 +438,13 @@ $body-text-align:           null !default;
 $body-color:                $gray-900 !default;
 $body-bg:                   $white !default;
 
-$body-emphasis-color:       $black !default;
-
 $body-secondary-color:      rgba($body-color, .75) !default;
 $body-secondary-bg:         $gray-200 !default;
 
 $body-tertiary-color:       rgba($body-color, .5) !default;
 $body-tertiary-bg:          $gray-100 !default;
 
-$emphasis-color:            $black !default;
+$body-emphasis-color:       $black !default;
 
 // Links
 //
@@ -535,15 +539,18 @@ $border-radius:               .375rem !default;
 $border-radius-sm:            .25rem !default;
 $border-radius-lg:            .5rem !default;
 $border-radius-xl:            1rem !default;
-$border-radius-2xl:           2rem !default;
+$border-radius-xxl:           2rem !default;
 $border-radius-pill:          50rem !default;
 // scss-docs-end border-radius-variables
+// fusv-disable
+$border-radius-2xl:           $border-radius-xxl !default; // Deprecated in v5.3.0
+// fusv-enable
 
 // scss-docs-start box-shadow-variables
-$box-shadow:                  0 .5rem 1rem rgba(var(--#{$prefix}body-color-rgb), .15) !default;
-$box-shadow-sm:               0 .125rem .25rem rgba(var(--#{$prefix}body-color-rgb), .075) !default;
-$box-shadow-lg:               0 1rem 3rem rgba(var(--#{$prefix}body-color-rgb), .175) !default;
-$box-shadow-inset:            inset 0 1px 2px rgba(var(--#{$prefix}body-color-rgb), .075) !default;
+$box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
+$box-shadow-sm:               0 .125rem .25rem rgba($black, .075) !default;
+$box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
+$box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
 // scss-docs-end box-shadow-variables
 
 $component-active-color:      $white !default;
@@ -666,7 +673,9 @@ $small-font-size:             .875em !default;
 
 $sub-sup-font-size:           .75em !default;
 
-$text-muted:                  var(--#{$prefix}secondary-color) !default;
+// fusv-disable
+$text-muted:                  var(--#{$prefix}secondary-color) !default; // Deprecated in 5.3.0
+// fusv-enable
 
 $initialism-font-size:        $small-font-size !default;
 
@@ -739,7 +748,7 @@ $table-striped-columns-order: even !default;
 
 $table-group-separator-color: currentcolor !default;
 
-$table-caption-color:         $text-muted !default;
+$table-caption-color:         var(--#{$prefix}secondary-color) !default;
 
 $table-bg-scale:              -80% !default;
 // scss-docs-end table-variables
@@ -845,7 +854,7 @@ $form-text-margin-top:                  .25rem !default;
 $form-text-font-size:                   $small-font-size !default;
 $form-text-font-style:                  null !default;
 $form-text-font-weight:                 null !default;
-$form-text-color:                       $text-muted !default;
+$form-text-color:                       var(--#{$prefix}secondary-color) !default;
 // scss-docs-end form-text-variables
 
 // scss-docs-start form-label-variables
@@ -872,13 +881,13 @@ $input-padding-y-lg:                    $input-btn-padding-y-lg !default;
 $input-padding-x-lg:                    $input-btn-padding-x-lg !default;
 $input-font-size-lg:                    $input-btn-font-size-lg !default;
 
-$input-bg:                              var(--#{$prefix}form-control-bg) !default;
+$input-bg:                              var(--#{$prefix}body-bg) !default;
 $input-disabled-color:                  null !default;
-$input-disabled-bg:                     var(--#{$prefix}form-control-disabled-bg) !default;
+$input-disabled-bg:                     var(--#{$prefix}secondary-bg) !default;
 $input-disabled-border-color:           null !default;
 
 $input-color:                           var(--#{$prefix}body-color) !default;
-$input-border-color:                    var(--#{$prefix}border-color) !default; //$gray-400
+$input-border-color:                    var(--#{$prefix}border-color) !default;
 $input-border-width:                    $input-btn-border-width !default;
 $input-box-shadow:                      $box-shadow-inset !default;
 
@@ -1333,7 +1342,7 @@ $card-group-margin:                 $grid-gutter-width * .5 !default;
 // scss-docs-start accordion-variables
 $accordion-padding-y:                     1rem !default;
 $accordion-padding-x:                     1.25rem !default;
-$accordion-color:                         var(--#{$prefix}body-color) !default; // Sass variable because of $accordion-button-icon
+$accordion-color:                         var(--#{$prefix}body-color) !default;
 $accordion-bg:                            var(--#{$prefix}body-bg) !default;
 $accordion-border-width:                  var(--#{$prefix}border-width) !default;
 $accordion-border-color:                  var(--#{$prefix}border-color) !default;
@@ -1356,7 +1365,7 @@ $accordion-button-focus-box-shadow:       $btn-focus-box-shadow !default;
 
 $accordion-icon-width:                    1.25rem !default;
 $accordion-icon-color:                    $body-color !default;
-$accordion-icon-active-color:             $primary-text !default;
+$accordion-icon-active-color:             $primary-text-emphasis !default;
 $accordion-icon-transition:               transform .2s ease-in-out !default;
 $accordion-icon-transform:                rotate(-180deg) !default;
 
