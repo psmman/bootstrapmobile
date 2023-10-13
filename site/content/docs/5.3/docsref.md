@@ -30,18 +30,50 @@ sitemap_exclude: true
 
 ## Code example
 
+<div class="bd-example">
+  <div class="test">This is a test.</div>
+</div>
+
 ```scss
 .test {
   --color: blue;
 }
 ```
 
-<div class="bd-example">
-  The <abbr title="HyperText Markup Language">HTML</abbr> abbreviation element.
-</div>
+```html
+<div class="test">This is a markup only test.</div>
+```
+
+{{< highlight html >}}
+<div class="test">This is a markup only test.</div>
+{{< /highlight >}}
+
+{{< example show_preview=false >}}
+<div class="test">This is a markup only test.</div>
+{{< /example >}}
+
+{{< example show_markup=false >}}
+<div class="test">This is a preview only test.</div>
+{{< /example >}}
 
 {{< example >}}
 <div class="test">This is a test.</div>
+{{< /example >}}
+
+{{< example class=bg-body-secondary >}}
+<div class="test">This is a test.</div>
+{{< /example >}}
+
+{{< example >}}
+<skip class="test">
+  This is a skip test.
+</skip>
+{{< /example >}}
+
+{{< example skip=p >}}
+<skip class="test">
+  This is a skip test with <code>p</code>.
+</skip>
 {{< /example >}}
 
 {{< scss-docs name="variable-gradient" file="scss/_variables.scss" >}}

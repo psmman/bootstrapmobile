@@ -52,11 +52,13 @@
   // Instantiate all toasts in docs pages only
   document.querySelectorAll('.bd-example .toast')
     .forEach(toastNode => {
-      const toast = new bootstrap.Toast(toastNode, {
-        autohide: false
-      })
+      if (toastNode.id !== 'liveToast') {
+        const toast = new bootstrap.Toast(toastNode, {
+          autohide: false
+        })
 
-      toast.show()
+        toast.show()
+      }
     })
 
   // Instantiate all toasts in docs pages only
@@ -118,6 +120,27 @@
         checkbox.indeterminate = true
       }
     })
+
+  // -------------------------------
+  // Forms
+  // -------------------------------
+  // Modal 'Varying modal content' example in docs and StackBlitz
+  // js-docs-start forms-validation
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+  // js-docs-end forms-validation
 
   // -------------------------------
   // Links
