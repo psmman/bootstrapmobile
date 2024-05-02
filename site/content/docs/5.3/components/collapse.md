@@ -8,7 +8,7 @@ toc: true
 
 ## How it works
 
-The collapse JavaScript plugin is used to show and hide content. Buttons or anchors are used as triggers that are mapped to specific elements you toggle. Collapsing an element will animate the `height` from its current value to `0`. Given how CSS handles animations, you cannot use `padding` on a `.collapse` element. Instead, use the class as an independent wrapping element.
+The collapse JavaScript plugin is used to show and hide content. Buttons, anchors and many other elements can be used as triggers that are mapped to specific elements you toggle. Collapsing an element will animate the `height` from its current value to `0`. Given how CSS handles animations, you cannot use `padding` on a `.collapse` element. Instead, use the class as an independent wrapping element.
 
 {{< callout info >}}
 {{< partial "callouts/info-prefersreducedmotion.md" >}}
@@ -22,7 +22,7 @@ Click the buttons below to show and hide another element via class changes:
 - `.collapsing` is applied during transitions
 - `.collapse.show` shows content
 
-Generally, we recommend using a `<button>` with the `data-bs-target` attribute. While not recommended from a semantic point of view, you can also use an `<a>` link with the `href` attribute (and a `role="button"`). In both cases, the `data-bs-toggle="collapse"` is required.
+Generally, we recommend using a `<button>` with the `data-bs-target` attribute. While not recommended from a semantic point of view, you can also use an `<a>` link with the `href` attribute (and a `role="button"`), an input with `type="checkbox"` or even a `<div>` tag. In all cases, the `data-bs-toggle="collapse"` is required.
 
 {{< example >}}
 <p class="d-inline-flex gap-1">
